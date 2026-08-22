@@ -25,7 +25,6 @@
 
 ### Backend/security
 - Firebase Authentication (Email/Password) for admins.
-- Cloud Firestore on the Firebase Spark/free plan.
 - No Cloud Functions required.
 - Firestore transactions prevent two admins from approving the same QR simultaneously.
 - Public student records cannot be listed/read.
