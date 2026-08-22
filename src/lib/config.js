@@ -1,9 +1,14 @@
-export const EVENT_CODE = (import.meta.env.VITE_EVENT_CODE || 'GRAD26').trim();
-export const EVENT_NAME = (import.meta.env.VITE_EVENT_NAME || 'Graduation 2026').trim();
-export const SCHOOL_NAME = (import.meta.env.VITE_SCHOOL_NAME || 'Your School Name').trim();
-export const ADMISSION_EXAMPLE = (import.meta.env.VITE_ADMISSION_EXAMPLE || 'e.g. 12345').trim();
-export const EMAIL_EXAMPLE = (import.meta.env.VITE_EMAIL_EXAMPLE || 'e.g. student@school.lk').trim();
-export const PHONE_EXAMPLE = (import.meta.env.VITE_PHONE_EXAMPLE || 'e.g. 4567').trim();
+export const EVENT_CODE = 'GRAD26';
+
+export const EVENT_NAME = 'Graduation 2026';
+
+export const SCHOOL_NAME = 'Lyceum International School Gampaha';
+
+export const ADMISSION_EXAMPLE = 'e.g. G01234';
+
+export const EMAIL_EXAMPLE = 'Email used for payment receipt';
+
+export const PHONE_EXAMPLE = 'Last 4 digits of payment phone';
 
 export const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
