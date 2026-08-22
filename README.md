@@ -5,7 +5,7 @@
 
 ### Student portal
 - Retrieve a paid graduation pass using admission number + email + phone verification.
-- QR contains only an opaque random token: `GRAD26|v1|<token>`.
+- QR contains only an opaque random token.
 - No admission number, name, email or phone is embedded in the QR.
 - Download QR as PNG or print/save the pass.
 - Pass shows whether it has already been used for entry.
