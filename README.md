@@ -1,6 +1,5 @@
 # Graduation 2026 Check-In System
 
-A blue/silver glassmorphism graduation pass and event-day check-in system built with **Vite + React + Firebase** for deployment on **GitHub Pages**.
 
 ## Included features
 
