@@ -1,6 +1,6 @@
 export const EVENT_CODE = 'GRAD26';
 
-export const EVENT_NAME = 'Aurelia'26';
+export const EVENT_NAME = "Aurelia'26";
 
 export const SCHOOL_NAME = 'Lyceum International School Gampaha';
 
