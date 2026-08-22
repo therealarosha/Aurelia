@@ -1,25 +1,33 @@
 name: Deploy Vite site to GitHub Pages
+
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
+
       - run: npm install
+
       - name: Build
         env:
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
@@ -29,24 +37,31 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
+
           VITE_EVENT_CODE: ${{ vars.VITE_EVENT_CODE }}
           VITE_EVENT_NAME: ${{ vars.VITE_EVENT_NAME }}
           VITE_SCHOOL_NAME: ${{ vars.VITE_SCHOOL_NAME }}
           VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH }}
+
+          VITE_ADMISSION_EXAMPLE: ${{ vars.VITE_ADMISSION_EXAMPLE }}
+          VITE_EMAIL_EXAMPLE: ${{ vars.VITE_EMAIL_EXAMPLE }}
+          VITE_PHONE_EXAMPLE: ${{ vars.VITE_PHONE_EXAMPLE }}
+
         run: npm run build
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-VITE_ADMISSION_EXAMPLE: ${{ vars.VITE_ADMISSION_EXAMPLE }}
-VITE_EMAIL_EXAMPLE: ${{ vars.VITE_EMAIL_EXAMPLE }}
-VITE_PHONE_EXAMPLE: ${{ vars.VITE_PHONE_EXAMPLE }}
